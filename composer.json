@@ -1,0 +1,29 @@
+{
+    "name": "looxis/libreworkspace-socialite-provider",
+    "description": "A laravel socialite provider for libreworkspace",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Looxis\\LibreworkspaceSocialiteProvider\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Christian Stefener",
+            "email": "dev@looxis.com"
+        }
+    ],
+    "require": {
+        "php": "^8.0",
+        "ext-json": "*",
+        "socialiteproviders/manager": "^4.4"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Looxis\\LibreworkspaceSocialiteProvider\\LibreWorkspaceServiceProvider"
+            ]
+        }
+    }
+}

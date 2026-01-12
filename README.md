@@ -18,36 +18,13 @@ then follow the provider specific instructions below.
     'provider_url' => env('LIBREWORKSPACE_PROVIDER_URL'),
     'client_id' => env('LIBREWORKSPACE_CLIENT_ID'),
     'client_secret' => env('LIBREWORKSPACE_CLIENT_SECRET'),
-    'redirect' => env('LIBREWORKSPACE_REDIRECT_URI', config('app.url') . '/auth/libreworkspace/callback'),
-    'group' => 'looxis',
+    'redirect' => env('LIBREWORKSPACE_REDIRECT_URI', config('app.url') . '/auth/libreworkspace/callback')
 ],
 ```
-
-with group you can define the group a user must have in the Libreworkspace, otherwise it will throw a 403
 
 ### Usage
 
 You should now be able to use the provider:
-
-```php
-<form method="GET" action="{{ route('libreworkspace.auth.redirect') }}" class="form-horizontal">
-    {!! csrf_field() !!}
-    <div class="field">
-        <p class="control">
-            <button class="button is-default is-medium is-fullwidth" value="'single Sign On'">
-                <span class="icon-right-space">
-                    <i class="fa fa-user"></i>
-                </span>
-                Single Sign On
-            </button>
-        </p>
-    </div>
-</form>
-```
-
-This package is using an internal AuthController and routes, so there is no need to add them.
-
-Nevertheless you can use the built in Socialite methods, if necessary:
 
 ```php
 return Socialite::driver('libreworkspace')->redirect();

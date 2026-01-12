@@ -15,10 +15,7 @@ class LibreWorkspaceServiceProvider extends ServiceProvider
      * Register any application services.
      */
     public function register()
-    {
-        //$this->mergeConfigFrom(__DIR__ . '/config/libreworkspace.php', 'libreworkspace');
-
-    }
+    {}
 
     /**
      * Bootstrap services.
@@ -28,9 +25,5 @@ class LibreWorkspaceServiceProvider extends ServiceProvider
         Event::listen(SocialiteWasCalled::class, function (SocialiteWasCalled $event) {
             $event->extendSocialite('libreworkspace', Provider::class);
         });
-
-
-        // Load routes for authentication (if needed)
-        $this->loadRoutesFrom(__DIR__.'/routes/web.php');
     }
 }

@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use YourPackageNamespace\Http\Controllers\YourAuthController;
 use Looxis\LibreworkspaceSocialiteProvider\AuthController;
 
 Route::middleware(['web'])->group(function () {

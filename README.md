@@ -15,6 +15,7 @@ then follow the provider specific instructions below.
 
 ```php
 'libreworkspace' => [
+    'provider_url' => env('LIBREWORKSPACE_PROVIDER_URL'),
     'client_id' => env('LIBREWORKSPACE_CLIENT_ID'),
     'client_secret' => env('LIBREWORKSPACE_CLIENT_SECRET'),
     'redirect' => env('LIBREWORKSPACE_REDIRECT_URI', config('app.url') . '/auth/libreworkspace/callback'),
@@ -57,3 +58,8 @@ To redirect to the authentication, and then:
 ```php
 $user = Socialite::driver('libreworkspace')->user()
 ```
+
+## Versioning
+
+- `0.x` – legacy versions including auth routes and controllers (deprecated)
+- `1.0+` – pure Socialite provider without routes or login logic

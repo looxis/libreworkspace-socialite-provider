@@ -20,7 +20,7 @@ class Provider extends AbstractProvider
      */
     protected function getAuthUrl($state)
     {
-        return $this->buildAuthUrlFromBase('https://portal.looxis.de/openid/authorize', $state);
+        return $this->buildAuthUrlFromBase(config('libreworkspace.provider_url') . '/openid/authorize', $state);
     }
 
     /**
@@ -28,7 +28,7 @@ class Provider extends AbstractProvider
      */
     protected function getTokenUrl()
     {
-        return 'https://portal.looxis.de/openid/token';
+        return config('libreworkspace.provider_url') . '/openid/token';
     }
 
     /**
@@ -36,7 +36,7 @@ class Provider extends AbstractProvider
      */
     protected function getUserByToken($token)
     {
-        $response = $this->getHttpClient()->get('https://portal.looxis.de/openid/userinfo', [
+        $response = $this->getHttpClient()->get(config('libreworkspace.provider_url') . '/openid/userinfo', [
             RequestOptions::HEADERS => [
                 'Authorization' => 'Bearer '.$token,
             ],

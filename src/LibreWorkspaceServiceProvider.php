@@ -16,7 +16,7 @@ class LibreWorkspaceServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //$this->mergeConfigFrom(__DIR__ . '/config/libreworkspace.php', 'libreworkspace');
+        $this->mergeConfigFrom(__DIR__ . '/config/libreworkspace.php', 'libreworkspace');
 
     }
 

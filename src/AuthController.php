@@ -26,9 +26,12 @@ class AuthController
 
     public function findOrCreateUser($socialiteUser)
     {
+        $group = config('libreworkspace.group');
 
-        if (!in_array(config('services.libreworkspace.group'), $socialiteUser->user['groups'])) {
-            abort(403);
+        if(! empty($group) ) {
+            if (!in_array($group, $socialiteUser->user['groups'])) {
+                abort(403);
+            }
         }
 
         $user = User::where('name', $socialiteUser->username)->first();

@@ -18,6 +18,15 @@ class LibreWorkspaceServiceProvider extends ServiceProvider
     {
         $this->mergeConfigFrom(__DIR__ . '/config/libreworkspace.php', 'libreworkspace');
 
+        // Bridge: Socialite/SocialiteProviders erwartet config('services.libreworkspace')
+        $lw = config('libreworkspace');
+
+        config()->set('services.libreworkspace', [
+            'client_id'     => $lw['client_id']     ?? null,
+            'client_secret' => $lw['client_secret'] ?? null,
+            'redirect'      => $lw['redirect']      ?? null,
+        ]);
+
     }
 
     /**
@@ -25,6 +34,7 @@ class LibreWorkspaceServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+
         Event::listen(SocialiteWasCalled::class, function (SocialiteWasCalled $event) {
             $event->extendSocialite('libreworkspace', Provider::class);
         });

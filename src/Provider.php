@@ -10,10 +10,11 @@ class Provider extends AbstractProvider
 {
     const IDENTIFIER = 'LIBREWORKSPACE';
 
-    /**
-     * {@inheritdoc}
-     */
-    protected $scopes = ['openid profile email groups'];
+    public function getScopes()
+    {
+        $scopes = config('libreworkspace.scopes', 'openid profile email groups');
+        return [$scopes];
+    }
 
     /**
      * {@inheritdoc}

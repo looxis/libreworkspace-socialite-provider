@@ -11,19 +11,20 @@ composer require looxis/libreworkspace-socialite-provider
 Please see the [Base Installation Guide](https://socialiteproviders.com/usage/),
 then follow the provider specific instructions below.
 
-### Add configuration to `config/services.php`
+### Configure settings in `.env`
 
-```php
-'libreworkspace' => [
-    'provider_url' => env('LIBREWORKSPACE_PROVIDER_URL'),
-    'client_id' => env('LIBREWORKSPACE_CLIENT_ID'),
-    'client_secret' => env('LIBREWORKSPACE_CLIENT_SECRET'),
-    'redirect' => env('LIBREWORKSPACE_REDIRECT_URI', config('app.url') . '/auth/libreworkspace/callback'),
-    'group' => 'looxis',
-],
+```
+LIBREWORKSPACE_PROVIDER_URL=https://portal.yourdomain.com
+LIBREWORKSPACE_CLIENT_ID=XXXXXX
+LIBREWORKSPACE_CLIENT_SECRET=YYYYYYYYYYYYYYYYYY
+LIBREWORKSPACE_REDIRECT_URI=http://yourapp.com/auth/libreworkspace/callback
+LIBREWORKSPACE_GROUP=yourapp
+LIBREWORKSPACE_SCOPES="openid profile email groups"
 ```
 
 with group you can define the group a user must have in the Libreworkspace, otherwise it will throw a 403
+
+with scopes you can define the scopes the openID response should include
 
 ### Usage
 

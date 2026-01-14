@@ -13,17 +13,6 @@ then follow the provider specific instructions below.
 
 ### Configure settings in `.env`
 
-<<<<<<< HEAD
-```php
-'libreworkspace' => [
-    'provider_url' => env('LIBREWORKSPACE_PROVIDER_URL'),
-    'client_id' => env('LIBREWORKSPACE_CLIENT_ID'),
-    'client_secret' => env('LIBREWORKSPACE_CLIENT_SECRET'),
-    'redirect' => env('LIBREWORKSPACE_REDIRECT_URI', config('app.url') . '/auth/libreworkspace/callback')
-],
-```
-
-=======
 ```
 LIBREWORKSPACE_PROVIDER_URL=https://portal.yourdomain.com
 LIBREWORKSPACE_CLIENT_ID=XXXXXX
@@ -37,7 +26,6 @@ with group you can define the group a user must have in the Libreworkspace, othe
 
 with scopes you can define the scopes the openID response should include
 
->>>>>>> 0.3
 ### Usage
 
 You should now be able to use the provider:
